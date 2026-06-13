@@ -68,10 +68,10 @@ export async function getUrl(req, res) {
         
         return res.redirect(findUrl.originalUrl)
     } catch (error) {
+           console.log(error)
            return res.status(500).json({
             success: false,
             message: "Internal Server Error",
-            data: error
         });
     }
 }
