@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "keywords": [],
+  "keywords": ["backend", "express", "nodejs", "mongoose", "nanoid", "dotenv", "cors"],
   "author": "",
   "license": "ISC",
   "type": "module",
