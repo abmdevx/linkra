@@ -5,8 +5,6 @@ import cors from "cors"
 
 const PORT = process.env.PORT || 3000;
 
-console.log(process.env.FRONT_END_ORIGIN);
-
 app.use(
     cors({
         origin: process.env.FRONT_END_ORIGIN
