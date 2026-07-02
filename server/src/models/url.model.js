@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import { model, Schema } from "mongoose";
 
-const urlSchema = new mongoose.Schema(
+const urlSchema = new Schema(
     {
         originalUrl: {
             type: String,
@@ -18,6 +18,6 @@ const urlSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-const Url = mongoose.model("Url", urlSchema);
+const Url = model("Url", urlSchema);
 
 export default Url;
