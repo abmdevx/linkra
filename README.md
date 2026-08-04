@@ -47,8 +47,8 @@ url-shortener/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/abdullahbutt09/code-alpha-url-shortner.git
-cd c0de-alpha-url-shortener
+git clone https://github.com/abmdevx/url-shortner.git
+cd url-shortener
 ```
 
 ### Install dependencies
