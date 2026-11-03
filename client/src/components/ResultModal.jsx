@@ -14,20 +14,20 @@ export default function ResultModal({ result, apiUrl, onClose, onCopy }) {
       }}
     >
       <section
-        className="relative w-full max-w-[430px] rounded-3xl border border-[rgba(120,132,204,.35)] bg-[linear-gradient(145deg,#202442,#0d1020)] p-8 text-center shadow-[0_30px_90px_rgba(0,0,0,.6)]"
+        className="relative w-full max-w-107.5 rounded-3xl border border-[rgba(120,132,204,.35)] bg-[linear-gradient(145deg,#202442,#0d1020)] p-8 text-center shadow-[0_30px_90px_rgba(0,0,0,.6)]"
         role="dialog"
         aria-modal="true"
         aria-labelledby="result-title"
       >
         <button
-          className="absolute right-[18px] top-4 text-[#8790ad]"
+          className="absolute right-4.5 top-4 text-[#8790ad]"
           onClick={onClose}
           aria-label="Close dialog"
         >
           <X size={20} />
         </button>
 
-        <div className="mx-auto mb-[18px] flex h-[52px] w-[52px] items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 text-white shadow-lg shadow-cyan-500/20">
+        <div className="mx-auto mb-4.5 flex h-13 w-13 items-center justify-center rounded-full bg-linear-to-br from-cyan-400 to-blue-500 text-white shadow-lg shadow-cyan-500/20">
           <Check size={25} />
         </div>
 
@@ -35,7 +35,7 @@ export default function ResultModal({ result, apiUrl, onClose, onCopy }) {
           Your link is ready
         </p>
         <h2
-          className="mb-[22px] font-sans text-[1.7rem] font-semibold tracking-[-.04em]"
+          className="mb-5.5 font-sans text-[1.7rem] font-semibold tracking-[-.04em]"
           id="result-title"
         >
           Share it anywhere.
@@ -51,7 +51,7 @@ export default function ResultModal({ result, apiUrl, onClose, onCopy }) {
             {shortLink}
           </a>
           <button
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-gradient-to-br from-cyan-400 to-violet-600 text-white shadow-lg shadow-blue-500/20"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-linear-to-br from-cyan-400 to-violet-600 text-white shadow-lg shadow-blue-500/20"
             onClick={onCopy}
             aria-label="Copy short link"
           >

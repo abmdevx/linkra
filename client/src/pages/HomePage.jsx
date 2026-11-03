@@ -20,7 +20,7 @@ export default function HomePage({
         <h1 className="max-w-2xl font-sans text-6xl font-semibold leading-[.95] tracking-[-.07em] sm:text-8xl">
           Short links.
           <br />
-          <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-500 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-cyan-300 via-blue-400 to-violet-500 bg-clip-text text-transparent">
             Longer reach.
           </span>
         </h1>

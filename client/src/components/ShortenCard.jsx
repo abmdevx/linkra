@@ -1,4 +1,4 @@
-import { Scissors, ShieldCheck } from "lucide-react";
+import { Link2, ShieldCheck } from "lucide-react";
 
 export default function ShortenCard({
   url,
@@ -10,11 +10,11 @@ export default function ShortenCard({
   const inputId = dashboard ? "dashboard-url" : "home-url";
 
   return (
-    <section className="relative overflow-hidden rounded-[26px] border border-[rgba(123,130,176,.2)] bg-[linear-gradient(145deg,rgba(27,30,51,.93),rgba(13,15,28,.96))] p-6 shadow-[0_28px_80px_rgba(0,0,0,.4)] sm:p-[38px]">
-      <div className="pointer-events-none absolute -right-[70px] -top-[90px] h-[180px] w-[180px] rounded-full bg-[#3e26bd] opacity-[.16] blur-[80px]" />
+    <section className="relative overflow-hidden rounded-[26px] border border-[rgba(123,130,176,.2)] bg-[linear-gradient(145deg,rgba(27,30,51,.93),rgba(13,15,28,.96))] p-6 shadow-[0_28px_80px_rgba(0,0,0,.4)] sm:p-9.5">
+      <div className="pointer-events-none absolute -right-17.5 -top-22.5 h-45 w-45 rounded-full bg-[#3e26bd] opacity-[.16] blur-[80px]" />
 
       <div className="relative flex items-center gap-4">
-        <div className="flex h-[46px] w-[46px] items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-cyan-400 to-violet-600 shadow-lg shadow-blue-500/20">
+        <div className="flex h-11.5 w-11.5 items-center justify-center overflow-hidden rounded-xl bg-linear-to-br from-cyan-400 to-violet-600 shadow-lg shadow-blue-500/20">
           <img className="h-full w-full object-cover" src="/linkra.png" alt="" />
         </div>
         <div>
@@ -39,7 +39,7 @@ export default function ShortenCard({
         </label>
         <div className="flex items-center gap-2.5">
           <input
-            className="min-h-[54px] min-w-0 w-full rounded-[11px] border border-[#2a2e47] bg-[#0a0c17] px-4 text-white outline-none transition placeholder:text-[#565d76] focus:border-cyan-400 focus:shadow-[0_0_0_3px_rgba(46,201,237,.12)]"
+            className="min-h-13.5 min-w-0 w-full rounded-[11px] border border-[#2a2e47] bg-[#0a0c17] px-4 text-white outline-none transition placeholder:text-[#565d76] focus:border-cyan-400 focus:shadow-[0_0_0_3px_rgba(46,201,237,.12)]"
             id={inputId}
             type="url"
             placeholder="https://yourwebsite.com/article"
@@ -47,12 +47,12 @@ export default function ShortenCard({
             onChange={(event) => setUrl(event.target.value)}
           />
           <button
-            className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-[11px] bg-gradient-to-br from-cyan-400 to-violet-600 text-white shadow-lg shadow-blue-500/20 transition hover:-translate-y-px hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
+            className="flex h-13.5 w-13.5 shrink-0 items-center justify-center rounded-[11px] bg-linear-to-br from-cyan-400 to-violet-600 text-white shadow-lg shadow-blue-500/20 transition hover:-translate-y-px hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
             type="submit"
             disabled={loading}
-            aria-label="Shorten URL"
+            aria-label="Create short link"
           >
-            <Scissors size={23} />
+            <Link2 size={23} />
           </button>
         </div>
         <p className="mt-2 text-xs text-[#626a83]">

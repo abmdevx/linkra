@@ -12,12 +12,12 @@ export default function AuthPage({
 
   return (
     <main className="relative z-10 flex min-h-[calc(100vh-110px)] items-center justify-center px-5 py-12">
-      <section className="w-full max-w-[430px] rounded-[26px] border border-white/10 bg-[linear-gradient(145deg,rgba(27,30,51,.96),rgba(13,15,28,.98))] p-7 shadow-2xl sm:p-10">
+      <section className="w-full max-w-107.5 rounded-[26px] border border-white/10 bg-[linear-gradient(145deg,rgba(27,30,51,.96),rgba(13,15,28,.98))] p-7 shadow-2xl sm:p-10">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-cyan-400 to-violet-600">
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-linear-to-br from-cyan-400 to-violet-600">
             <img className="h-full w-full object-cover" src="/linkra.png" alt="" />
           </div>
-          <h1 className="font-sans text-3xl font-semibold tracking-[-.05em]">
+          <h1 className="font-sans text-3xl font-semibold tracking-tighter">
             {isLogin ? "Welcome back." : "Join Linkra."}
           </h1>
           <p className="mt-2 text-sm text-[#8790b0]">
@@ -56,7 +56,7 @@ export default function AuthPage({
           </label>
 
           <button
-            className="flex min-h-[52px] w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-600 font-bold text-white transition hover:brightness-110 disabled:opacity-60"
+            className="flex min-h-13 w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-cyan-400 via-blue-500 to-violet-600 font-bold text-white transition hover:brightness-110 disabled:opacity-60"
             disabled={loading}
           >
             {isLogin ? "Sign in" : "Create account"}

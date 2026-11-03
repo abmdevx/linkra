@@ -1,107 +1,63 @@
-# 🔗 URL Shortener
+# Linkra
 
-A modern full-stack URL Shortener application that allows users to generate short, shareable links from long URLs. Built with a React frontend and an Express.js backend, the application provides a fast, responsive, and clean user experience while securely storing shortened URLs in MongoDB.
+Linkra is a full-stack URL shortener with a React dashboard, user authentication, and MongoDB-backed link history.
 
-## 🚀 Tech Stack
+## Features
 
-### Frontend
+- Create short links anonymously or while signed in
+- Register and sign in with a username and password
+- View and copy your previously shortened links
+- Responsive Tailwind CSS interface
+- JWT-protected dashboard APIs
 
-* React 19
-* Vite
-* Tailwind CSS v4
-* Axios
-* React Hot Toast
-
-### Backend
-
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* Nano ID
-* CORS
-* Dotenv
-
-## ✨ Features
-
-* Convert long URLs into short, unique links
-* Fast and responsive user interface
-* RESTful API architecture
-* Unique short IDs generated using Nano ID
-* MongoDB integration for persistent URL storage
-* Environment variable support using Dotenv
-* Cross-Origin Resource Sharing (CORS) enabled
-* Modern React frontend powered by Vite
-* Toast notifications for user feedback
-
-## 📁 Project Structure
+## Project structure
 
 ```text
-url-shortener/
-├── client/      # React + Vite frontend
-└── server/      # Express + MongoDB backend
+linkra/
+├── client/   # React + Vite frontend
+└── server/   # Express + MongoDB API
 ```
 
-## 🛠️ Installation
+## Requirements
 
-### Clone the repository
+- Node.js 18+
+- MongoDB connection string
 
-```bash
-git clone https://github.com/abmdevx/url-shortner.git
-cd url-shortener
-```
-
-### Install dependencies
-
-Backend
+## Installation
 
 ```bash
-cd server
+git clone https://github.com/abmdevx/linkra.git
+cd linkra
 npm install
+npm install --prefix client
+npm install --prefix server
 ```
 
-Frontend
-
-```bash
-cd ../client
-npm install
-```
-
-### Configure environment variables
-
-Create a `.env` file inside the `server` directory.
+Create `server/.env` from [server/.env.example](./server/.env.example):
 
 ```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-BASE_URL=http://localhost:5000
+PORT=8000
+MONGODB_URI_CONNECTION=your_mongodb_connection_string
+FRONT_END_ORIGIN=http://localhost:5173
+JWT_SECRET=your_long_random_secret
 ```
 
-### Start the application
+## Run locally
 
-Backend
+Start both applications from the project root:
 
 ```bash
 npm run dev
 ```
 
-Frontend
+Or run them separately:
 
 ```bash
-npm run dev
+npm run dev --prefix server
+npm run dev --prefix client
 ```
 
-Or, if you have configured `concurrently` in the root project:
+- Frontend: http://localhost:5173
+- Backend: http://localhost:8000
 
-```bash
-npm run dev
-```
-
-## 📌 Future Improvements
-
-* User authentication
-* URL analytics (click count, location, devices)
-* Custom short URLs
-* QR code generation
-* Link expiration
-* Dashboard for managing links
+See the [frontend README](./client/README.md) and [backend README](./server/README.md) for detailed module documentation.

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import AppLayout from "../layout/AppLayout";
 import AuthPage from "../pages/AuthPage";
-import AuthPrompt from "../pages/AuthPrompt";
 import DashboardPage from "../pages/DashboardPage";
 import HomePage from "../pages/HomePage";
 import ResultModal from "../components/ResultModal";
@@ -39,6 +38,18 @@ export default function AppRouter() {
       loadLinks();
     }
   }, [screen, user, loadLinks]);
+
+  useEffect(() => {
+    if (screen === "auth" && user) {
+      navigate("dashboard");
+    }
+  }, [screen, user, navigate]);
+
+  useEffect(() => {
+    if (!authLoading && screen === "dashboard" && !user) {
+      navigate("home");
+    }
+  }, [authLoading, screen, user, navigate]);
 
   const submitAuth = async (event) => {
     event.preventDefault();
@@ -99,10 +110,6 @@ export default function AppRouter() {
           apiUrl={apiUrl}
           onCopy={copyLink}
         />
-      )}
-
-      {screen === "dashboard" && !user && (
-        <AuthPrompt onAuth={() => openAuth()} />
       )}
 
       {result && (

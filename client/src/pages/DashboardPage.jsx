@@ -21,7 +21,7 @@ export default function DashboardPage({
           </p>
           <h1 className="font-sans text-4xl font-semibold tracking-[-.06em] sm:text-5xl">
             Good to see you,{" "}
-            <span className="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">
               {user.username}
             </span>
             .
@@ -31,16 +31,15 @@ export default function DashboardPage({
           </p>
         </div>
 
-        <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3">
+        <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/3 px-4 py-3">
           <Link2 className="text-cyan-300" size={20} />
           <div>
             <p className="text-xl font-bold">{links.length}</p>
-            <p className="text-xs text-[#8790b0]">Total links</p>
           </div>
         </div>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
+      <div className="flex flex-col gap-6">
         <ShortenCard
           dashboard
           url={url}
@@ -49,7 +48,7 @@ export default function DashboardPage({
           loading={loading}
         />
 
-        <section className="rounded-[26px] border border-white/10 bg-white/[.03] p-5 sm:p-7">
+        <section className="rounded-[26px] border border-white/10 bg-white/3 p-5 sm:p-7">
           <div className="mb-5 flex items-center justify-between">
             <div>
               <h2 className="font-sans text-xl font-semibold">Your short links</h2>

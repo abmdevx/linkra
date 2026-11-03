@@ -1,9 +1,26 @@
 {
+  "name": "linkra",
+  "version": "1.0.0",
+  "description": "Linkra full-stack URL shortener",
+  "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
-    "dev:server": "npm run dev --prefix server",
-    "dev:client": "npm run dev --prefix client"
+    "dev": "concurrently -k -n BACKEND,FRONTEND -c red,green \"npm run dev --prefix server\" \"npm run dev --prefix client\""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abmdevx/url-shortner.git"
+  },
+  "keywords": [
+    "url-shortener",
+    "linkra",
+    "react",
+    "express",
+    "mongodb",
+    "nanoid"
+  ],
+  "type": "commonjs",
+  "homepage": "https://github.com/abmdevx/url-shortner#readme",
+  "private": true,
   "devDependencies": {
     "concurrently": "^10.0.3"
   }
