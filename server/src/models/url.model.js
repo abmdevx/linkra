@@ -13,7 +13,12 @@ const urlSchema = new Schema(
             required: true,
             unique: true,
             trim: true,
-        }
+        },
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+            default: null,
+        },
     },
     { timestamps: true }
 );

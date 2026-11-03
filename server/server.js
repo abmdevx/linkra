@@ -1,15 +1,8 @@
 import app from "./src/app.js";
-import "dotenv/config"; // Automatically loads the .env file
+import "dotenv/config";
 import { connectDB } from "./src/config/db.js";
-import cors from "cors"
 
 const PORT = process.env.PORT || 3000;
-
-app.use(
-    cors({
-        origin: process.env.FRONT_END_ORIGIN
-    })
-)
 
 app.get("/", (req, res) => {
   res.send("Backend Working");
