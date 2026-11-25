@@ -1,1 +1,58 @@
 @import "tailwindcss";
+@import "@fontsource-variable/geist";
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-base: #09090b;
+  --color-surface: #111113;
+  --color-surface-2: #18181b;
+  --color-line: #27272a;
+  --color-fg: #fafafa;
+  --color-muted: #a1a1aa;
+  --color-subtle: #71717a;
+  --color-accent: #22d3ee;
+  --color-accent-fg: #042f36;
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+
+  .input {
+    @apply h-12 w-full min-w-0 rounded-xl border border-line bg-base px-4 text-fg outline-none transition placeholder:text-subtle focus:border-accent;
+  }
+
+  .btn {
+    @apply inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-xl px-5 text-sm font-medium transition disabled:cursor-wait disabled:opacity-60;
+  }
+
+  .btn-sm {
+    @apply h-9 rounded-lg px-3.5;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-accent-fg hover:brightness-110;
+  }
+
+  .btn-ghost {
+    @apply border border-line text-fg hover:bg-surface-2;
+  }
+}

@@ -1,61 +1,66 @@
-import { Check, Clipboard, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Check, Copy, X } from "lucide-react";
 
 export default function ResultModal({ result, apiUrl, onClose, onCopy }) {
   const shortLink = `${apiUrl}/u/${result.shortUrl}`;
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
+  const handleCopy = () => {
+    onCopy();
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  };
 
   return (
     <div
-      className="fixed inset-0 z-20 flex items-center justify-center bg-[rgba(3,4,12,.78)] p-5"
+      className="fixed inset-0 z-20 flex items-center justify-center bg-black/70 p-5 backdrop-blur-sm"
       role="presentation"
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) {
-          onClose();
-        }
+        if (event.target === event.currentTarget) onClose();
       }}
     >
       <section
-        className="relative w-full max-w-107.5 rounded-3xl border border-[rgba(120,132,204,.35)] bg-[linear-gradient(145deg,#202442,#0d1020)] p-8 text-center shadow-[0_30px_90px_rgba(0,0,0,.6)]"
+        className="card relative w-full max-w-md p-7 shadow-2xl shadow-black/50"
         role="dialog"
         aria-modal="true"
         aria-labelledby="result-title"
       >
         <button
-          className="absolute right-4.5 top-4 text-[#8790ad]"
+          className="absolute right-4 top-4 rounded-lg p-1.5 text-subtle transition hover:bg-surface-2 hover:text-fg"
           onClick={onClose}
           aria-label="Close dialog"
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
-        <div className="mx-auto mb-4.5 flex h-13 w-13 items-center justify-center rounded-full bg-linear-to-br from-cyan-400 to-blue-500 text-white shadow-lg shadow-cyan-500/20">
-          <Check size={25} />
+        <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-accent/15 text-accent">
+          <Check size={20} />
         </div>
-
-        <p className="mb-2 text-[.73rem] font-bold uppercase tracking-[.12em] text-[#6de0e5]">
+        <h2 className="text-xl font-semibold tracking-tight" id="result-title">
           Your link is ready
-        </p>
-        <h2
-          className="mb-5.5 font-sans text-[1.7rem] font-semibold tracking-[-.04em]"
-          id="result-title"
-        >
-          Share it anywhere.
         </h2>
+        <p className="mt-1 text-sm text-muted">Copy it and share it anywhere.</p>
 
-        <div className="flex items-center gap-2">
+        <div className="mt-5 flex items-center gap-2">
           <a
-            className="block min-w-0 flex-1 truncate rounded-[10px] border border-[#303653] bg-[#090c18] p-3.5 text-left text-[.84rem] text-[#83dff5]"
+            className="block h-12 min-w-0 flex-1 truncate rounded-xl border border-line bg-base px-4 text-sm leading-[3rem] text-accent hover:underline"
             href={shortLink}
             target="_blank"
             rel="noreferrer"
           >
             {shortLink}
           </a>
-          <button
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-linear-to-br from-cyan-400 to-violet-600 text-white shadow-lg shadow-blue-500/20"
-            onClick={onCopy}
-            aria-label="Copy short link"
-          >
-            <Clipboard size={19} />
+          <button className="btn btn-primary" onClick={handleCopy}>
+            {copied ? <Check size={16} /> : <Copy size={16} />}
+            {copied ? "Copied" : "Copy"}
           </button>
         </div>
       </section>

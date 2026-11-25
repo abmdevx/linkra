@@ -1,4 +1,4 @@
-import { Clipboard, ExternalLink } from "lucide-react";
+import { Copy, ExternalLink } from "lucide-react";
 
 export default function LinkRow({ link, apiUrl, onCopy }) {
   const shortLink = `${apiUrl}/u/${link.shortUrl}`;
@@ -9,33 +9,29 @@ export default function LinkRow({ link, apiUrl, onCopy }) {
   });
 
   return (
-    <article className="group rounded-2xl border border-white/10 bg-[#0d1020]/70 p-4 transition hover:border-cyan-400/30">
-      <div className="flex items-center justify-between gap-3">
-        <div className="min-w-0">
-          <a
-            className="flex items-center gap-2 truncate font-semibold text-cyan-300 hover:text-cyan-200"
-            href={shortLink}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {shortLink}
-            <ExternalLink size={14} className="shrink-0" />
-          </a>
-          <p className="mt-2 truncate text-xs text-[#69718b]">
-            {link.originalUrl}
-          </p>
-        </div>
-
-        <button
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 text-[#8790b0] transition hover:border-cyan-400/30 hover:text-cyan-300"
-          onClick={() => onCopy(link.shortUrl)}
-          aria-label="Copy short link"
+    <li className="flex items-center justify-between gap-4 px-5 py-4 transition hover:bg-surface-2/60">
+      <div className="min-w-0">
+        <a
+          className="inline-flex max-w-full items-center gap-1.5 font-medium text-accent hover:underline"
+          href={shortLink}
+          target="_blank"
+          rel="noreferrer"
         >
-          <Clipboard size={16} />
-        </button>
+          <span className="truncate">{shortLink}</span>
+          <ExternalLink size={13} className="shrink-0" />
+        </a>
+        <p className="mt-1 truncate text-sm text-muted">{link.originalUrl}</p>
+        <p className="mt-1 text-xs text-subtle">{createdDate}</p>
       </div>
 
-      <p className="mt-3 text-[.68rem] text-[#505974]">{createdDate}</p>
-    </article>
+      <button
+        className="btn btn-sm btn-ghost"
+        onClick={() => onCopy(link.shortUrl)}
+        aria-label="Copy short link"
+      >
+        <Copy size={15} />
+        <span className="hidden sm:inline">Copy</span>
+      </button>
+    </li>
   );
 }
