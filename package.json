@@ -4,7 +4,10 @@
   "description": "Linkra full-stack URL shortener",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently -k -n BACKEND,FRONTEND -c red,green \"npm run dev --prefix server\" \"npm run dev --prefix client\""
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -k -n BACKEND,FRONTEND -c red,green \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start": "npm start --prefix server",
+    "build": "npm run build --prefix client"
   },
   "repository": {
     "type": "git",

@@ -29,17 +29,35 @@ linkra/
 git clone https://github.com/abmdevx/linkra.git
 cd linkra
 npm install
-npm install --prefix client
-npm install --prefix server
 ```
 
-Create `server/.env` from [server/.env.example](./server/.env.example):
+`npm install` in the root installs everything: the root tooling, the server dependencies, and the client dependencies.
+
+Create the environment files from the examples:
+
+```bash
+# macOS / Linux / Git Bash
+cp server/.env.example server/.env
+cp client/.env.example client/.env
+
+# Windows (PowerShell)
+copy server\.env.example server\.env
+copy client\.env.example client\.env
+```
+
+Then fill in `server/.env`:
 
 ```env
 PORT=8000
 MONGODB_URI_CONNECTION=your_mongodb_connection_string
 FRONT_END_ORIGIN=http://localhost:5173
 JWT_SECRET=your_long_random_secret
+```
+
+And `client/.env`:
+
+```env
+VITE_BACKEND_END_ORIGIN=http://localhost:8000
 ```
 
 ## Run locally
@@ -59,5 +77,14 @@ npm run dev --prefix client
 
 - Frontend: http://localhost:5173
 - Backend: http://localhost:8000
+
+## Scripts (root)
+
+| Command         | What it does                                      |
+| --------------- | ------------------------------------------------- |
+| `npm install`   | Installs root, server, and client dependencies    |
+| `npm run dev`   | Starts backend and frontend together              |
+| `npm run build` | Builds the frontend for production                |
+| `npm start`     | Starts the backend with Node (no auto-reload)     |
 
 See the [frontend README](./client/README.md) and [backend README](./server/README.md) for detailed module documentation.
